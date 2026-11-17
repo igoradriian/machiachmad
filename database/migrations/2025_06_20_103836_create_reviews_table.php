@@ -10,9 +10,8 @@ class CreateReviewsTable extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id'); 
+            // Kolom user_id ditambahkan di migrasi 2025_06_20_221426_add_user_id_to_reviews_table
             $table->foreignId('gallery_id')->constrained()->onDelete('cascade');
-            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
             $table->string('name');
             $table->string('email');
             $table->tinyInteger('rating'); // nilai 1-5
